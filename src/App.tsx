@@ -5,6 +5,7 @@ import { selectedTheme } from "./redux/features/theme/themeSlice";
 import { useAppDispatch, useAppSelector } from "./redux/hooks";
 import Loading from "./components/Loading";
 import { addToHistory } from "./redux/features/searchHistory/searchHistorySlice";
+import ErrorMessage from "./components/ErrorMessage";
 
 const App = () => {
   const mode = useAppSelector(selectedTheme);
@@ -44,6 +45,7 @@ const App = () => {
             <SearchBar />
           </div>
 
+          <ErrorMessage />
           <Loading />
         </main>
 
