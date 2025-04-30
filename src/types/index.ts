@@ -22,8 +22,8 @@ export type TWeatherData = {
   timezone: number;
   dt: number;
 };
-export type TWeatherError = {
-  message: string;
+export type TWeatherState = {
+  data: TWeatherData | null;
 };
 export type TSearchHistoryItem = {
   city: string;
