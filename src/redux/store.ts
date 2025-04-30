@@ -11,6 +11,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import { baseApi } from "./api/baseApi";
 
 //* Persist config for theme
 const themePersistConfig = {
@@ -22,6 +23,7 @@ const persistedThemeReducer = persistReducer(themePersistConfig, themeReducer);
 
 export const store = configureStore({
   reducer: {
+    [baseApi.reducerPath]: baseApi.reducer,
     theme: persistedThemeReducer,
   },
   middleware: (getDefaultMiddleware) =>
