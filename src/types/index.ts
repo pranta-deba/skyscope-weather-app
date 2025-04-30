@@ -1,3 +1,10 @@
+// * Theme :
+export type TThemeMode = "light" | "dark";
+export type TThemeState = {
+  mode: TThemeMode;
+};
+
+// * Weather Data, Error, Search History :
 export type TWeatherData = {
   city: string;
   country: string;
@@ -15,13 +22,9 @@ export type TWeatherData = {
   timezone: number;
   dt: number;
 };
-
 export type TWeatherError = {
   message: string;
 };
-
-export type TThemeMode = "light" | "dark";
-
 export type TSearchHistoryItem = {
   city: string;
   country: string;
