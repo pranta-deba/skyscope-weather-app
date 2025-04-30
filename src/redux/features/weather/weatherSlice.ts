@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { TWeatherData, TWeatherError, TWeatherState } from "../../../types";
-import { RootState } from "../../store";
 import { fetchWeatherData } from "../../../utils/api";
 
 const initialState: TWeatherState = {
@@ -57,8 +56,5 @@ const weatherSlice = createSlice({
   },
 });
 
-export const selectedWeather = (state: RootState) => state.weather.data;
-export const selectedLoading = (state: RootState) => state.weather.loading;
-export const selectedError = (state: RootState) => state.weather.loading;
 export const { clearWeatherData, clearError } = weatherSlice.actions;
 export default weatherSlice.reducer;

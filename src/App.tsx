@@ -2,13 +2,16 @@ import { useEffect } from "react";
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import { selectedTheme } from "./redux/features/theme/themeSlice";
-import { useAppSelector } from "./redux/hooks";
+import { useAppDispatch, useAppSelector } from "./redux/hooks";
 import Loading from "./components/Loading";
+import { addToHistory } from "./redux/features/searchHistory/searchHistorySlice";
 
 const App = () => {
   const mode = useAppSelector(selectedTheme);
+  const { data } = useAppSelector((state) => state.weather);
+  const dispatch = useAppDispatch();
 
-
+  // * theme
   useEffect(() => {
     if (mode === "dark") {
       document.documentElement.classList.add("dark");
@@ -16,6 +19,18 @@ const App = () => {
       document.documentElement.classList.remove("dark");
     }
   }, [mode]);
+
+  // * Add to search history
+  useEffect(() => {
+    if (data) {
+      dispatch(
+        addToHistory({
+          city: data.city,
+          country: data.country,
+        })
+      );
+    }
+  }, [data, dispatch]);
 
   return (
     <div
