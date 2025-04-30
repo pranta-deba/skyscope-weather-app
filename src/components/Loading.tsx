@@ -1,6 +1,10 @@
 import { Cloud, CloudRain } from "lucide-react";
+import { useAppSelector } from "../redux/hooks";
 
 const Loading = () => {
+  const { loading } = useAppSelector((state) => state.weather);
+
+  if (!loading) return null;
   return (
     <div className="w-full max-w-md mx-auto mt-8 flex flex-col items-center justify-center">
       <div className="flex items-center justify-center mb-4">
