@@ -12,7 +12,7 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-// Persist config for theme
+//* Persist config for theme
 const themePersistConfig = {
   key: "theme",
   storage,

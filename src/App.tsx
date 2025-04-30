@@ -1,10 +1,23 @@
+import { useEffect } from "react";
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
+import { selectedTheme } from "./redux/features/theme/themeSlice";
+import { useAppSelector } from "./redux/hooks";
 
 const App = () => {
+  const mode = useAppSelector(selectedTheme);
+
+  useEffect(() => {
+    if (mode === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [mode]);
+
   return (
     <div
-      className={`min-h-screen transition-colors duration-500 dark:from-gray-800 dark:to-gray-900`}
+      className={`min-h-screen  transition-colors duration-500 dark:bg-gray-800 dark:from-gray-800 dark:to-gray-900`}
     >
       <div className="min-h-screen backdrop-blur-sm dark:bg-black/30 transition-colors duration-500">
         <Header />
@@ -17,7 +30,7 @@ const App = () => {
 
         <footer
           className="py-4 px-6 text-center 
-        text-black
+        text-black dark:text-white
         text-sm"
         >
           <p>
