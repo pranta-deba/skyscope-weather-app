@@ -4,6 +4,7 @@ import SearchBar from "./components/SearchBar";
 import { selectedTheme } from "./redux/features/theme/themeSlice";
 import { useAppSelector } from "./redux/hooks";
 import { useFetchWeatherDataQuery } from "./redux/api/baseApi";
+import Loading from "./components/Loading";
 
 const App = () => {
   const mode = useAppSelector(selectedTheme);
@@ -30,6 +31,7 @@ const App = () => {
           <div className="mb-6">
             <SearchBar />
           </div>
+          <Loading />
         </main>
 
         <footer

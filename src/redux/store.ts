@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import themeReducer from "./features/theme/themeSlice";
+import weatherReducer from "./features/weather/weatherSlice";
 import {
   persistStore,
   persistReducer,
@@ -19,12 +20,23 @@ const themePersistConfig = {
   storage,
 };
 
+//* Persist config for weather
+const weatherPersistConfig = {
+  key: "weather",
+  storage,
+};
+
 const persistedThemeReducer = persistReducer(themePersistConfig, themeReducer);
+const persistedWeatherReducer = persistReducer(
+  weatherPersistConfig,
+  weatherReducer
+);
 
 export const store = configureStore({
   reducer: {
     [baseApi.reducerPath]: baseApi.reducer,
     theme: persistedThemeReducer,
+    weather: persistedWeatherReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
