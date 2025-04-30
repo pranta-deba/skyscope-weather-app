@@ -1,8 +1,10 @@
 import { CloudSun, History } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
+import { useState } from "react";
+import HistoryList from "./HistoryList";
 
 const Header = () => {
- 
+  const [isHistoryOpen, setIsHistoryOpen] = useState(false);
 
   return (
     <header className="w-full py-4 px-6">
@@ -16,9 +18,8 @@ const Header = () => {
 
         <div className="flex items-center space-x-3">
           <button
-            // onClick={() => setIsHistoryOpen(true)}
-            className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-            aria-label="View search history"
+            onClick={() => setIsHistoryOpen(true)}
+            className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors cursor-pointer"
           >
             <History className="w-5 h-5" />
           </button>
@@ -27,10 +28,10 @@ const Header = () => {
         </div>
       </div>
 
-      {/* <HistoryList
+      <HistoryList
         isOpen={isHistoryOpen}
         onClose={() => setIsHistoryOpen(false)}
-      /> */}
+      />
     </header>
   );
 };

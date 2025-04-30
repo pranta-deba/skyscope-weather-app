@@ -6,6 +6,8 @@ import { useAppDispatch, useAppSelector } from "./redux/hooks";
 import Loading from "./components/Loading";
 import { addToHistory } from "./redux/features/searchHistory/searchHistorySlice";
 import ErrorMessage from "./components/ErrorMessage";
+import Welcome from "./components/Welcome";
+import WeatherInfo from "./components/WeatherInfo";
 
 const App = () => {
   const mode = useAppSelector(selectedTheme);
@@ -47,6 +49,8 @@ const App = () => {
 
           <ErrorMessage />
           <Loading />
+          <Welcome />
+          <WeatherInfo />
         </main>
 
         <footer
