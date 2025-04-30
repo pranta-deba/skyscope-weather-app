@@ -1,10 +1,10 @@
-// * Theme :
+// * Theme and theme state:
 export type TThemeMode = "light" | "dark";
 export type TThemeState = {
   mode: TThemeMode;
 };
 
-// * Weather Data, Error, Search History :
+// * Weather Data ans weather state:
 export type TWeatherData = {
   city: string;
   country: string;
@@ -25,8 +25,13 @@ export type TWeatherData = {
 export type TWeatherState = {
   data: TWeatherData | null;
 };
+
+// * Search history and search history state
 export type TSearchHistoryItem = {
   city: string;
   country: string;
   timestamp: number;
+};
+export type THistoryState = {
+  searchHistory: TSearchHistoryItem[];
 };
