@@ -4,7 +4,7 @@ export type TThemeState = {
   mode: TThemeMode;
 };
 
-// * Weather Data ans weather state:
+// * Weather Data and weather state and weather error:
 export type TWeatherData = {
   city: string;
   country: string;
@@ -24,6 +24,11 @@ export type TWeatherData = {
 };
 export type TWeatherState = {
   data: TWeatherData | null;
+  loading: boolean;
+  error: string | null;
+};
+export type TWeatherError = {
+  message: string;
 };
 
 // * Search history and search history state
