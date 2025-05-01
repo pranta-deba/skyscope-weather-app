@@ -6,7 +6,7 @@ const Welcome = () => {
   if (data) return null;
 
   return (
-    <div className="w-full max-w-md mx-auto mt-12 p-6 bg-white/90 dark:bg-gray-800/90 rounded-lg shadow-lg text-center">
+    <div className="w-full max-w-md mx-auto mt-8 p-6 bg-white/90 dark:bg-gray-800/90 rounded-lg shadow-lg text-center">
       <CloudSun className="w-16 h-16 text-blue-500 mx-auto mb-4" />
 
       <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">

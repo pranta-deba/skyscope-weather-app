@@ -63,7 +63,7 @@ const SearchBar = () => {
           )}
           <button
             type="submit"
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 px-2 py-1 rounded-md bg-blue-500 hover:bg-blue-600 text-white transition"
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 px-2 py-1 rounded-md bg-blue-500 hover:bg-blue-600 text-white transition cursor-pointer"
             disabled={!query.trim()}
           >
             Search
@@ -79,7 +79,7 @@ const SearchBar = () => {
               <li key={index}>
                 <button
                   onClick={() => handleHistoryItemClick(item.city)}
-                  className="w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition flex items-center justify-between"
+                  className="w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition flex items-center justify-between cursor-pointer"
                 >
                   <span className="text-gray-800 dark:text-gray-200">
                     {item.city}, {item.country}
