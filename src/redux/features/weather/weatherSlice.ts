@@ -8,6 +8,7 @@ const initialState: TWeatherState = {
   error: null,
 };
 
+//* Async thunk to fetch weather data for a given city
 export const fetchWeather = createAsyncThunk<
   TWeatherData,
   string,
@@ -27,29 +28,32 @@ const weatherSlice = createSlice({
   name: "weather",
   initialState,
   reducers: {
+    //* Reducer to clear weather data and error
     clearWeatherData: (state) => {
       state.data = null;
       state.error = null;
     },
+    //* Reducer to clear the error state
     clearError: (state) => {
       state.error = null;
     },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchWeather.pending, (state) => {
+
+      .addCase(fetchWeather.pending, (state) => { //* Handle pending state of fetchWeather
         state.loading = true;
         state.error = null;
       })
       .addCase(
         fetchWeather.fulfilled,
-        (state, action: PayloadAction<TWeatherData>) => {
+        (state, action: PayloadAction<TWeatherData>) => { //* Handle fulfilled state of fetchWeather
           state.loading = false;
           state.data = action.payload;
           state.error = null;
         }
       )
-      .addCase(fetchWeather.rejected, (state, action) => {
+      .addCase(fetchWeather.rejected, (state, action) => {  //* Handle rejected state of fetchWeather
         state.loading = false;
         state.error = action.payload?.message || "Failed to fetch weather data";
       });
